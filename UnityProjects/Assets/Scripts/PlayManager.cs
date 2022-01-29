@@ -21,7 +21,7 @@ public class PlayManager : MonoBehaviour
     {
         // 自プレイヤーの作成
         player = MakePlayer(Vector3.zero, UserLoginData.userName);
-        
+
         // WebSocket開始
         StartWebSocket();
     }
@@ -38,7 +38,7 @@ public class PlayManager : MonoBehaviour
             PlayerActionMap = null;
         }
     }
-    
+
     /// <summary>
     /// 上ボタン押下時の処理
     /// </summary>
@@ -178,14 +178,21 @@ public class PlayManager : MonoBehaviour
     /// <param name="name"></param>
     private GameObject MakePlayer(Vector3 pos, string name)
     {
-        // プレイヤーのリソース(プレハブ)を取得 ※初回のみ
-        playerPrefab = playerPrefab ?? (GameObject)Resources.Load("SphPlayer");
+
+        string playerPrefabName = "";
+        if(name.Equals("mediapipe")){
+            playerPrefabName = "MediapipePlayer";
+        } else {
+            playerPrefabName = "SphPlayer";
+        }
+
+        playerPrefab = (GameObject)Resources.Load(playerPrefabName);        
 
         // プレイヤーを生成
         var player = (GameObject)Instantiate(playerPrefab, pos, Quaternion.identity);
 
         // プレイヤーのネームプレートの設定
-        var otherNameText = player.transform.Find("SphPlayer").gameObject;
+        var otherNameText = player.transform.Find(playerPrefabName).gameObject;
         otherNameText.GetComponent<TextMesh>().text = name;
 
         return player;
