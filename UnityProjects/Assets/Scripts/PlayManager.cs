@@ -8,7 +8,7 @@ public class PlayManager : MonoBehaviour
     private GameObject player;                  // 自プレイヤー情報
     private const float KEY_MOVEMENT = 0.5f;    // 移動ボタン1回クリックでの移動量
 
-    public float speed = 3.0f;
+    public float speed = 40.0f;
 
     // 全プレイヤーの行動情報
     private Dictionary<string, PlayerActionData> PlayerActionMap;      
@@ -216,7 +216,7 @@ public class PlayManager : MonoBehaviour
 
     private Vector3 GetFingerMovePos(PlayerActionData playerAction){
         float deltatime = Time.deltaTime * speed;
-        Debug.Log("test "+playerAction.pos_y);
+        // Debug.Log("test "+playerAction.pos_y);
         return new Vector3 (playerAction.pos_x * deltatime, 0, playerAction.pos_y * deltatime);
     }
 }
