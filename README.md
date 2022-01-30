@@ -1,6 +1,6 @@
 # FingerController-Unity-Mediapipe
 カメラで認識した指に連動してオブジェクトが動くアプリです。
-Mediapipe, Unity, NodeJsを使用してWebsocket通信で実現しました。
+Mediapipe, Unity, NodeJsを使用してWebsocket通信で実現しました。  
 ・指でオブジェクトを動かす  
 ![gif1](https://user-images.githubusercontent.com/65473130/151682970-f1bdd9a7-637c-4d36-a0a0-83c8f9104f51.gif)  
 ・指のカタチ認識
